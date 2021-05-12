@@ -1,0 +1,9 @@
+[package]
+name = "mi-led-bulb-discord-bot"
+version = "0.1.0"
+authors = ["JM REMEUR <jm@remeur.fr>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
