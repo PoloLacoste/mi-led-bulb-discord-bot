@@ -45,15 +45,21 @@ lazy_static! {
         c
     };
     static ref BULBS: Mutex<Vec<Bulb>> = {
-        let stream = TcpStream::connect("192.168.1.33:55443")
-        .expect("Connection failed");
-        let bottom_bulb = Bulb::attach(stream).unwrap();
 
-        let stream = TcpStream::connect("192.168.1.32:55443")
-        .expect("Connection failed");
-        let top_bulb = Bulb::attach(stream).unwrap();
+        let mut bulbs: Vec<Bulb> = vec![];
 
-        Mutex::new(vec![top_bulb, bottom_bulb])
+        if let Ok(ips_string) = env::var("BULBS") {
+            let ips: Vec<&str> = ips_string.split(",").collect();
+
+            for ip in ips {
+                let stream = TcpStream::connect((ip, 55443))
+                    .expect("Connection failed");
+                let bulb = Bulb::attach(stream).unwrap();
+                bulbs.push(bulb);
+            }
+        }
+
+        Mutex::new(bulbs)
     };
 }
 
