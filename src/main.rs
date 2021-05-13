@@ -35,13 +35,22 @@ struct General;
 lazy_static! {
     static ref COLORS: HashMap<&'static str, Rgb> = {
         let mut c = HashMap::new();
-        c.insert("white", Rgb { red: 255, green: 255, blue: 255 });
+        c.insert("brown", Rgb { red: 165, green: 42, blue: 42 });
         c.insert("red", Rgb { red: 255, green: 0, blue: 0 });
+        c.insert("orange", Rgb { red: 255, green: 165, blue: 0 });
+        c.insert("salmon", Rgb { red: 250, green: 128, blue: 114 });
         c.insert("green", Rgb { red: 0, green: 255, blue: 0 });
         c.insert("blue", Rgb { red: 0, green: 0, blue: 255 });
         c.insert("yellow", Rgb { red: 255, green: 255, blue: 0 });
-        c.insert("magenta", Rgb { red: 255, green: 0, blue: 255 });
         c.insert("cyan", Rgb { red: 0, green: 255, blue: 255 });
+        c.insert("turquoise", Rgb { red: 64, green: 224, blue: 208 });
+        c.insert("magenta", Rgb { red: 255, green: 0, blue: 255 });
+        c.insert("indigo", Rgb { red: 75, green: 0, blue: 130 });
+        c.insert("violet", Rgb { red: 238, green: 112, blue: 238 });
+        c.insert("chocolate", Rgb { red: 210, green: 105, blue: 30 });
+        c.insert("silver", Rgb { red: 192, green: 192, blue: 192 });
+        c.insert("grey", Rgb { red: 128, green: 128, blue: 128 });
+        c.insert("white", Rgb { red: 255, green: 255, blue: 255 });
         c
     };
     static ref BULBS: Mutex<Vec<Bulb>> = {
